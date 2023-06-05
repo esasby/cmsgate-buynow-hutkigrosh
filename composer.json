@@ -1,0 +1,39 @@
+{
+  "name": "esas/cmsgate-buynow-hutkigrosh",
+  "description": "Cmsgate BuyNow bridge for Hutkigrosh",
+  "keywords": [
+    "cmsgate",
+    "esas",
+    "payment gateway",
+    "buynow",
+    "hutkigrosh",
+    "bridge",
+    "erip",
+    "api"
+  ],
+  "require": {
+    "php": ">= 5.6.0",
+    "esas/cmsgate-hutkigrosh-lib": "~v2.0.0",
+    "esas/cmsgate-buynow-lib": "~v2.2.1",
+    "esas/cmsgate-core": "~v2.2.0",
+    "phpdocumentor/reflection-docblock": "5.3.0",
+    "ext-pdo": "*",
+    "ext-json": "*"
+  },
+  "authors": [
+    {
+      "name": "esas",
+      "email": "support@hutkigrosh.by",
+      "homepage": "https://hutkigrosh.by"
+    }
+  ],
+  "config": {
+    "vendor-dir": "src/cmsgate-buynow-hutkigrosh/vendor"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Esas\\Epos\\": ""
+    }
+  }
+}
