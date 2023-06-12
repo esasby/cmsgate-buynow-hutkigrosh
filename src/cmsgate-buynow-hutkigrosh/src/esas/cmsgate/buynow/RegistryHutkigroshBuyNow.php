@@ -3,7 +3,13 @@
 namespace esas\cmsgate\buynow;
 
 use esas\cmsgate\bridge\service\OrderService;
-use esas\cmsgate\buynow\hro\AdminLoginPageHROTunerBynowHutkigrosh;
+use esas\cmsgate\buynow\controllers\client\ClientControllerBuyNowOrderHutkigrosh;
+use esas\cmsgate\buynow\hro\admin\AdminLoginPageHROTunerBynowHutkigrosh;
+use esas\cmsgate\buynow\hro\client\ClientBuyNowHomeHRO;
+use esas\cmsgate\buynow\hro\client\ClientBuyNowHomeHROTunerBuynowHutkigrosh;
+use esas\cmsgate\buynow\lang\LocaleLoaderBuyNow;
+use esas\cmsgate\buynow\service\HooksBuyNow;
+use esas\cmsgate\buynow\service\HooksBuyNowHutkigrosh;
 use esas\cmsgate\buynow\service\OrderServiceBuyNowHutkigrosh;
 use esas\cmsgate\buynow\service\ServiceProviderBuyNow;
 use esas\cmsgate\buynow\view\admin\ConfigFormBuyNow;use esas\cmsgate\descriptors\ModuleDescriptor;
@@ -46,11 +52,13 @@ class RegistryHutkigroshBuyNow extends RegistryHutkigrosh
 
         $this->registerServicesFromProvider(new ServiceProviderBuyNow());
         $this->registerService(OrderService::class, new OrderServiceBuyNowHutkigrosh());
+        $this->registerService(HooksBuyNow::class, new HooksBuyNowHutkigrosh());
 
         HROManager::fromRegistry()->addImplementation(CompletionPanelHutkigroshHRO::class, CompletionPanelHutkigroshHRO_v2::class);
         HROManager::fromRegistry()->addTuner(AdminLoginPageHRO::class, AdminLoginPageHROTunerBynowHutkigrosh::class);
         HROManager::fromRegistry()->addTuner(FooterSectionCompanyInfoHRO::class, FooterSectionCompanyInfoHROTunerHutkigrosh::class);
         HROManager::fromRegistry()->addTuner(HeaderSectionLogoContactsHRO::class, HeaderSectionLogoContactsHROTunerHutkigrosh::class);
+        HROManager::fromRegistry()->addTuner(ClientBuyNowHomeHRO::class, ClientBuyNowHomeHROTunerBuynowHutkigrosh::class);
     }
 
 
@@ -105,5 +113,11 @@ class RegistryHutkigroshBuyNow extends RegistryHutkigrosh
 
     function getUrlAlfaclick($orderWrapper) {
         throw new CMSGateException("Not implemented");
+    }
+
+    public function createLocaleLoader() {
+        $localeLoader = new LocaleLoaderBuyNow();
+        $localeLoader->addExtraVocabularyDir(dirname(__FILE__) . "/lang");
+        return $localeLoader;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace esas\cmsgate\buynow\hro;
+namespace esas\cmsgate\buynow\hro\admin;
 
 
 use esas\cmsgate\bridge\view\client\RequestParamsBridge;
@@ -19,7 +19,7 @@ class AdminLoginPageHROTunerBynowHutkigrosh implements HROTuner
      */
     public function tune($hroBuilder) {
         return $hroBuilder
-            ->setLoginField(RequestParamsBridge::LOGIN_FORM_LOGIN, "Loginn")
+            ->setLoginField(RequestParamsBridge::LOGIN_FORM_LOGIN, "Login")
             ->setPasswordField(RequestParamsBridge::LOGIN_FORM_PASSWORD, 'Password')
             ->setSandbox(PropertiesBuyNowHutkigrosh::fromRegistry()->isSandbox())
             ->setMessage("Login to BuyNow " . Registry::getRegistry()->getPaysystemConnector()->getPaySystemConnectorDescriptor()->getPaySystemMachinaName());
