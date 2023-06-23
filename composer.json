@@ -13,9 +13,9 @@
   ],
   "require": {
     "php": ">= 5.6.0",
-    "esas/cmsgate-hutkigrosh-lib": "~v2.0.1",
+    "esas/cmsgate-hutkigrosh-lib": "~v2.0.3",
     "esas/cmsgate-buynow-lib": "~v2.2.2",
-    "esas/cmsgate-core": "~v2.2.2",
+    "esas/cmsgate-core": "~v2.2.5",
     "phpdocumentor/reflection-docblock": "5.3.0",
     "ext-pdo": "*",
     "ext-json": "*"
